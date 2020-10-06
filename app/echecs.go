@@ -17,8 +17,12 @@ func init() {
 }
 
 func main() {
-	log.Info("[main] starting echecs")
-	log.Info("[main] generating board")
-	_ = (&board.Board{}).New()
-	log.Info("[main] board generated")
+	board := (&board.Board{}).New()
+	err := board.Populate()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	board.Print()
+	board.PrintPieces()
 }
