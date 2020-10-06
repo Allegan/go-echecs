@@ -17,12 +17,7 @@ func init() {
 }
 
 func main() {
-	board := (&board.Board{}).New()
-	err := board.Populate()
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	board.Print()
-	board.PrintPieces()
+	gameBoard := board.New()
+	gameBoard.Print()
+	gameBoard.PrintPieces()
 }
